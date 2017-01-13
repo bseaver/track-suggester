@@ -6,7 +6,7 @@
 
 ## Description
 
-_The intention is to demonstrate a level of proficiency with the technologies used by creating a sample survey and evaluation site.  It uses Bootstrap forms and CSS for the survey and JavaScript for performing evaluation of the user's preferences._
+_The intention is to demonstrate a level of proficiency with the technologies used by creating a sample survey and evaluation site.  It uses Bootstrap forms and CSS for the survey and JavaScript for performing evaluation of the user's preferences. JQuery is used both to interact with the form and collect data._
 
 ## Setup/Installation Requirements
 
