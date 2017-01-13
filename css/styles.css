@@ -1,2 +1,8 @@
-/* No additional styling at present!
-** Just using Bootstrap rows and columns */
+/* Start with body of questionnaire hidden */
+form .panel-body {
+  display: none;
+}
+
+body {
+  background-color: lightyellow;
+}

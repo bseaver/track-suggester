@@ -29,7 +29,7 @@ $(document).ready(function() {
 
   // Show or hide Questionnaire
   $(".panel-heading").click(function() {
-    $(this).siblings(".panel-body").toggle();
+    $(this).siblings(".panel-body").slideToggle();
   });
 
 
