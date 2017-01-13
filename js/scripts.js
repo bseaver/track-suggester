@@ -11,4 +11,11 @@ $(document).ready(function() {
     event.preventDefault();
   }); // End Form submit
 
+
+  // Show or hide Questionnaire
+  $(".panel-heading").click(function() {
+    $(this).siblings(".panel-body").toggle();
+  });
+
+
 }); // End JavaScript
