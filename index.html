@@ -30,10 +30,19 @@
             </div>
 
             <div class="panel-body">
-              <h4>In your career do you want to focus on:</h4>
-              <!-- The following is Header and Radio Buttons are a template -->
-              <h5><u>Design language and user experience?</u></h5>
+              <h4>Please supply your preferences of focus in your career:</h4>
 
+
+              <!-- Note:  All the questions are pairs of h5's and divs.
+              The only difference between the pairs are:
+              1. The question in the h5 and
+              2. The name in the inputs in the div.
+              Thus, a list of questions and names could
+              be used to generate the HTMS list of questions by
+              repeating the h5 - div pairs with those 2 parameters -->
+
+
+              <h5><u>Design language and user experience?</u></h5>
               <div class="radio questionnaireScore">
                 <label>
                   <input type="radio" name="design" value ="2">
@@ -53,8 +62,8 @@
                 </label>
               </div>
 
-              <h5><u>Database operations and business logic?</u></h5>
 
+              <h5><u>Database operations and business logic?</u></h5>
               <div class="radio questionnaireScore">
                 <label>
                   <input type="radio" name="programming" value ="2">
@@ -70,6 +79,90 @@
                 </label>
                 <label>
                   <input type="radio"  name="programming" value ="-1">
+                  Not So Much
+                </label>
+              </div>
+
+
+              <h5><u>Writing web apps as a serial entrepreneur?</u></h5>
+              <div class="radio questionnaireScore">
+                <label>
+                  <input type="radio" name="ruby" value ="2">
+                  Definitely Yes &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio" name="ruby" value ="1">
+                  Yes to Some Degree &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="ruby" value ="0" checked>
+                  No Preference &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="ruby" value ="-1">
+                  Not So Much
+                </label>
+              </div>
+
+
+              <h5><u>Building out content heavy apps?</u></h5>
+              <div class="radio questionnaireScore">
+                <label>
+                  <input type="radio" name="php" value ="2">
+                  Definitely Yes &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio" name="php" value ="1">
+                  Yes to Some Degree &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="php" value ="0" checked>
+                  No Preference &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="php" value ="-1">
+                  Not So Much
+                </label>
+              </div>
+
+
+              <h5><u>Enterprise, Android and the internet of everything?</u></h5>
+              <div class="radio questionnaireScore">
+                <label>
+                  <input type="radio" name="java" value ="2">
+                  Definitely Yes &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio" name="java" value ="1">
+                  Yes to Some Degree &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="java" value ="0" checked>
+                  No Preference &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="java" value ="-1">
+                  Not So Much
+                </label>
+              </div>
+
+
+              <h5><u>Business apps on the Microsoft Platform?</u></h5>
+              <div class="radio questionnaireScore">
+                <label>
+                  <input type="radio" name="dotNet" value ="2">
+                  Definitely Yes &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio" name="dotNet" value ="1">
+                  Yes to Some Degree &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="dotNet" value ="0" checked>
+                  No Preference &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="dotNet" value ="-1">
                   Not So Much
                 </label>
               </div>
