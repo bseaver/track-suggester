@@ -20,7 +20,7 @@ $(document).ready(function() {
     var scoreArray = [];
     var personName = $("#inputName").val();
     var suggestions = "";
-    var endSuggestions = false;
+    var suggestionsStopped = false;
 
     // Begin Function Section
     // Given name return score
@@ -47,6 +47,11 @@ $(document).ready(function() {
       }
       return count;
     }
+
+    // Stop evaluating suggestions
+    var stopSuggestions = function() {
+      suggestionsStopped = true;
+    }
     // End Function Section
 
       ////////////////////////
@@ -55,15 +60,30 @@ $(document).ready(function() {
     getScores(scoreArray);
 
     // Start building message to user with personal greeting
-    if (!endSuggestions && personName) {
-      suggestions += "Hello " + personName + "!\n";
+    if (!suggestionsStopped && personName) {
+      suggestions += "Hello " + personName + "! ";
     }
 
     // Did the user give us enough preferences to form a suggestion?
     // (More than 1/2).
-    if (!endSuggestions && numberOfPreferences() <= numberOfQuestions() / 2) {
-      suggestions += "Please provide a preference for most questions so I can provide a suggestion.\n"
-      endSuggestions = true;
+    if (!suggestionsStopped && numberOfPreferences() <= numberOfQuestions() / 2) {
+      suggestions += "Please provide a preference for most questions so I can provide a suggestion. "
+      stopSuggestions();
+    }
+
+    // Design only?
+    if (!suggestionsStopped && scoreOf("design") > 0 && scoreOf("programming") <= 0) {
+      suggestions += "The CSS and Design track looks best for you! ";
+      stopSuggestions();
+    }
+
+    // Programming?
+    if (!suggestionsStopped && scoreOf("programming") > 0) {
+      if (scoreOf("design") > 0) {
+        suggestions += "Choosing a programming track and studying Design or CSS on your own looks best for you! ";
+      } else {
+        suggestions += "Choosing a programming track looks best for you! ";
+      }
     }
 
     // Insert suggestions
