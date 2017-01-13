@@ -20,11 +20,74 @@
             <input type="text" class="form-control" id="inputName" placeholder="Your Name">
           </div>
 
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <!-- Style header content as link. "#" means it does not open a new page -->
+              <a href="#">
+                <h4>Track Preferences</h4>
+                <p>Click to Expand or Contract Questionnaire</p>
+              </a>
+            </div>
+
+            <div class="panel-body">
+              <h4>In your career do you want to focus on:</h4>
+              <!-- The following is Header and Radio Buttons are a template
+                   The @ signs are used to delimite
+                   the replaceable question text
+                   and the replaceable radio button name -->
+              <h5><u>@Design language and user experience?@</u></h5>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="@preference-N@" value ="2">
+                  Definitely Yes &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio" name="@preference-N@" value ="1">
+                  Yes to Some Degree &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="@preference-N@" value ="0" checked>
+                  No Preference &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="@preference-N@" value ="-1">
+                  Not So Much
+                </label>
+              </div>
+
+              <h5><u>@Database operations and business logic?@</u></h5>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="@preference-N2@" value ="2">
+                  Definitely Yes &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio" name="@preference-N2@" value ="1">
+                  Yes to Some Degree &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="@preference-N2@" value ="0" checked>
+                  No Preference &nbsp; &nbsp;
+                </label>
+                <label>
+                  <input type="radio"  name="@preference-N2@" value ="-1">
+                  Not So Much
+                </label>
+              </div>
+
+
+
+            </div>
+
+          </div> <!-- End panel -->
+
           <button type="submit" class="btn">
             Submit!
           </button>
 
-        </form>
+        </form> <!-- End Form -->
 
         <div id="suggestions" class="well hidden">
           <h4><u>Track Suggestions</u></h4>
