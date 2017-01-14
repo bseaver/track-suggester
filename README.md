@@ -19,7 +19,7 @@ _The intention is to demonstrate a level of proficiency with the technologies us
 
 ## Known Bugs
 
-_No known bugs_
+_Suggestion logic is not correct or complete for programming track.  _
 
 ## Support and contact details
 

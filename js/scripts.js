@@ -22,7 +22,7 @@ $(document).ready(function() {
     var suggestions = "";
     var suggestionsStopped = false;
     var programmingTracks = ["java", "dotNet", "ruby", "php"];
-    var programmingTrackNamess = ["Java", "C#/.Net", "Ruby", "PHP"];
+    var programmingTrackNames = ["Java", "C#/.Net", "Ruby", "PHP"];
     var preferredProgramming = [];
 
     // Begin Function Section
@@ -55,12 +55,32 @@ $(document).ready(function() {
     var stopSuggestions = function() {
       suggestionsStopped = true;
     }
+
+    // Get Programming Track choices
+    var getProgrammingChoices = function(programmingTracks, programmingTrackNames) {
+      // Top choices
+      var prefered = [];
+
+      for (var i = 0; i < programmingTracks.length; i++) {
+        if (scoreOf(programmingTracks[i]) === 2) {
+          prefered.push(programmingTrackNames[i]);
+        }
+      }
+      // Secondary choices
+      for (var i = 0; i < programmingTracks.length; i++) {
+        if (scoreOf(programmingTracks[i]) === 1) {
+          prefered.push(programmingTrackNames[i]);
+        }
+      }
+      return prefered;
+    }
     // End Function Section
 
       ////////////////////////
      // Main Body of Submit
     ///////////////////////
     getScores(scoreArray);
+    preferedProgramming = getProgrammingChoices(programmingTracks, programmingTrackNames);
 
     // Start building message to user with personal greeting
     if (!suggestionsStopped && personName) {
@@ -87,13 +107,22 @@ $(document).ready(function() {
       } else {
         suggestions += "Choosing a programming track looks best for you! ";
       }
+    } else {
+      stopsuggestions();
+    }
+
+    // What programming are they interested in?
+    // All?
+    if (!suggestionsStopped && preferedProgramming.length === programmingTracks.length) {
+      suggestions += "Any programming track might be a good starting point for you, then you can fill in what else you are interested own your own. ";
+      stopSuggestions();
     }
 
     // Insert suggestions
     $("#suggestions p").text(suggestions);
 
     // Reveal the Suggestions
-    $("#suggestions").removeClass("hidden");
+    $("#suggestions").fadeIn();
 
     // Prevent page from refreshing
     event.preventDefault();
@@ -106,6 +135,11 @@ $(document).ready(function() {
   // Show or hide Questionnaire
   $(".panel-heading").click(function() {
     $(this).siblings(".panel-body").slideToggle();
+  });
+
+  // Fade suggestions box away
+  $(".fadeOutParent").click(function() {
+    $(this).parent().fadeOut();
   });
 
 

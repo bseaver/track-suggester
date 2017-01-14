@@ -1,5 +1,5 @@
 /* Start with body of questionnaire hidden */
-form .panel-body {
+form .panel-body, #suggestions {
   display: none;
 }
 
