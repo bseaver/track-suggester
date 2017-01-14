@@ -25,6 +25,9 @@ $(document).ready(function() {
     var programmingTrackNames = ["Java", "C#/.Net", "Ruby", "PHP"];
     var preferredProgramming = [];
 
+    // Prevent page from refreshing
+    event.preventDefault();
+
     // Begin Function Section
     // Given name return score
     var scoreOf = function(name) {
@@ -108,7 +111,7 @@ $(document).ready(function() {
         suggestions += "Choosing a programming track looks best for you! ";
       }
     } else {
-      stopsuggestions();
+      stopSuggestions();
     }
 
     // What programming are they interested in?
@@ -124,8 +127,6 @@ $(document).ready(function() {
     // Reveal the Suggestions
     $("#suggestions").fadeIn();
 
-    // Prevent page from refreshing
-    event.preventDefault();
   });
     ////////////////////////////////////////////////////////////////
    // End Handle Form Submit
