@@ -21,6 +21,9 @@ $(document).ready(function() {
     var personName = $("#inputName").val();
     var suggestions = "";
     var suggestionsStopped = false;
+    var programmingTracks = ["java", "dotNet", "ruby", "php"];
+    var programmingTrackNamess = ["Java", "C#/.Net", "Ruby", "PHP"];
+    var preferredProgramming = [];
 
     // Begin Function Section
     // Given name return score
