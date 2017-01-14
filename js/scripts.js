@@ -20,6 +20,7 @@ $(document).ready(function() {
     var scoreArray = [];
     var personName = $("#inputName").val();
     var suggestions = "";
+    var programmingFillIn = "";
     var suggestionsStopped = false;
     var programmingTracks = ["java", "dotNet", "ruby", "php"];
     var programmingTrackNames = ["Java", "C#/.Net", "Ruby", "PHP"];
@@ -52,12 +53,12 @@ $(document).ready(function() {
         }
       }
       return count;
-    }
+    };
 
     // Stop evaluating suggestions
     var stopSuggestions = function() {
       suggestionsStopped = true;
-    }
+    };
 
     // Get Programming Track choices
     var getProgrammingChoices = function(programmingTracks, programmingTrackNames) {
@@ -76,7 +77,29 @@ $(document).ready(function() {
         }
       }
       return prefered;
-    }
+    };
+
+    // Take an array of words and return:
+    // word1 | word1 or word2 | word1, word2 or word3
+    var thisThisOrThis = function(wordList) {
+      var phrase = "";
+      for (var i = 0; i < wordList.length; i++) {
+        // Before adding the next word do we need to put a comma or "or"?
+        // If not the first word...
+        if (i > 0) {
+          // If the second to the last word we use "or"
+          if (i === wordList.length - 1) {
+            phrase += " or ";
+          } else {
+            // Otherwise a comma
+            phrase += ", ";
+          }
+        }
+        // Now add the next word
+        phrase += wordList[i];
+      }
+      return phrase;
+    };
     // End Function Section
 
       ////////////////////////
@@ -116,8 +139,16 @@ $(document).ready(function() {
 
     // What programming are they interested in?
     // All?
+    programmingFillIn = "Then you can learn other programming environments on your own. "
+
     if (!suggestionsStopped && preferedProgramming.length === programmingTracks.length) {
-      suggestions += "Any programming track might be a good starting point for you, then you can fill in what else you are interested own your own. ";
+      suggestions += "Any programming track might be a good starting point for you. " + programmingFillIn;
+      stopSuggestions();
+    }
+
+    // One or some?
+    if (!suggestionsStopped && preferedProgramming.length < programmingTracks.length) {
+      suggestions += "If it is convenient, consider choosing " + thisThisOrThis(preferedProgramming) + ". Otherwise, you might choose any programming track. " + programmingFillIn;
       stopSuggestions();
     }
 
@@ -125,8 +156,7 @@ $(document).ready(function() {
     $("#suggestions p").text(suggestions);
 
     // Reveal the Suggestions
-    $("#suggestions").fadeIn();
-
+    $("#suggestions").fadeOut(100).fadeIn(100);
   });
     ////////////////////////////////////////////////////////////////
    // End Handle Form Submit
